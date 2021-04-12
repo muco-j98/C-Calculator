@@ -12,41 +12,42 @@ void displayInitialMessage() {
     cout << "Input: ";
 }
 
-void doComputation(float first, float second, char operation) {
+void doComputation(int first, int second, char operation) {
     do {
         switch(operation){
             case '+':
-                second += first;
+                first += second;
                 break;
             case '-':
-                second -= first;
+                first -= second;
                 break;
             case '/':
                 if (second == 0) {
                     cout << "Division by 0 not allowed" << endl;
+                } else if ( first % second != 0) {
+                    cout << "Division not possible" << endl;
                 } else {
-                    second /= first;
+                    first /= second;
                 }
                 break;
             case '*':
-                second *= first;
+                first *= second;
                 break;
             case '^':
-                second = pow(first, second);
+                first = pow(first, second);
                 break;
             default:
                 cout << "Not a valid operation. Try again.";
                 break;
         }
-
-        cout << "Result: " << second << endl;
-
+        cout << "Result: " << first << endl;
+        cout << "Enter operation and number" << endl;
         cin >> operation;
-
-        if (operation == 'q') break;
-
-        else cin >> first;
-
+        if (operation == 'q') {
+            break;
+        } else {
+            cin >> second;
+        }
     } while (true);
 }
 
@@ -55,7 +56,7 @@ int main() {
 
     //declaring variables
     char operation;
-    float firstNum, secondNum;
+    int firstNum, secondNum;
 
     displayInitialMessage();
 
