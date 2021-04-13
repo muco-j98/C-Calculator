@@ -1,9 +1,6 @@
 #include <iostream>
 #include <cmath>
 
-int calcInverse(int second, int n);
-
-int getGCD(int second, int n, int *pInt, int *pInt1);
 
 using namespace std;
 
@@ -73,7 +70,7 @@ void doComputation(int first, int second, char operation, int n) {
                 break;
             case '-':
                 result = (first - second) % n;
-                cout << "Result: " << result << endl;
+                cout << "Result: " << abs(result) << endl;
                 break;
             case '/':
                 if (second == 0) {
